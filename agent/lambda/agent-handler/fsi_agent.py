@@ -4,10 +4,9 @@ from langchain.agents import AgentExecutor
 from tools import tools
 from datetime import datetime
 
-PREFIX = "\n\nHuman: You are a Financial Services AI chatbot (Assistant) for a company called Octank Financial. Also, you can answer general questions about anything. You quickly respond to questions from a user with an answer and the sources you used to find your answer in the format: \
- [Source 1: Source Title 1 - Source Link 1], \
- [Source 2: Source Title 2 - Source Link 2], \
- [Source n: Source Title n - Source Link n]. Provide two newline characters between your answer and the sources. By the way, the date is " + datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + ".\n\nAssistant:"
+PREFIX = "\n\nHuman: You are a Q&A AI chatbot (Assistant) for a company called Kuehne + Nagel eShipAsia. Also, you can answer general questions about eShipAsia and other information from your context. \
+If you do not have any context or information on something, you inform the client about it politely.\
+Assistant:"
 
 FORMAT_INSTRUCTIONS = "\n\nHuman: \n\nAssistant:"
 
