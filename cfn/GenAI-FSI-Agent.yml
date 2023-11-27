@@ -387,12 +387,6 @@ Resources:
 
 
 Outputs:
-  AmplifyDemoWebsite:
-    Value: !Join ['', ['main.', !GetAtt AmplifyApp.DefaultDomain]]
-  AmplifyAppID:
-    Value: !GetAtt AmplifyApp.AppId
-  AmplifyBranch:
-    Value: !GetAtt AmplifyBranch.BranchName
   KendraIndexID:
     Value: !GetAtt KendraIndex.Id
   KendraS3DataSourceID:
