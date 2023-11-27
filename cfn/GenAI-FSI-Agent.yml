@@ -222,62 +222,6 @@ Resources:
     Properties:
       ServiceToken: !GetAtt DataLoaderFunction.Arn
 
-  AmplifyRole:
-    Type: AWS::IAM::Role
-    Properties:
-      RoleName: !Sub ${AWS::StackName}-AmplifyRole
-      AssumeRolePolicyDocument:
-        Version: '2012-10-17'
-        Statement:
-        - Effect: Allow
-          Principal:
-            Service:
-            - amplify.amazonaws.com
-          Action:
-          - sts:AssumeRole
-      Policies:
-      - PolicyName: !Sub ${AWS::StackName}-Amplify
-        PolicyDocument:
-          Version: '2012-10-17'
-          Statement:
-          - Effect: Allow
-            Action: 
-            - 'amplify:Create*'
-            - 'amplify:Get*'
-            - 'amplify:List*'
-            - 'amplify:Start*'
-            - 'amplify:Stop*'
-            - 'amplify:Update*'
-            Resource: '*'
-
-  AmplifyApp:
-    Type: AWS::Amplify::App
-    Properties:
-      Name: !Sub ${AWS::StackName}-Otank-Financial-Website
-      Repository: !Ref AmplifyRepository
-      BuildSpec: |
-        frontend:
-          phases:
-            # IMPORTANT - Please verify your build commands
-            build:
-              commands: []
-          artifacts:
-            # IMPORTANT - Please verify your build output directory
-            baseDirectory: ./frontend/
-            files:
-              - '**/*'
-          cache:
-            paths: []
-      AccessToken: !Sub "{{resolve:secretsmanager:${GitHubTokenSecretName}}}"
-      Description: Octank Financial website
-      IAMServiceRole: !GetAtt AmplifyRole.Arn
-
-  AmplifyBranch:
-    Type: AWS::Amplify::Branch
-    Properties:
-      AppId: !GetAtt AmplifyApp.AppId
-      BranchName: main
-
   KendraLogGroup:
     Type: AWS::Logs::LogGroup
     Properties:
