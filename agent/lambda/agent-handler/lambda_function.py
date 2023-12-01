@@ -107,15 +107,19 @@ def elicit_intent(intent_request, session_attributes, message):
                 'imageResponseCard': {
                     "buttons": [
                         {
-                            "text": "Loan Application",
-                            "value": "Loan Application"
+                            "text": "Ask about eShipAsia",
+                            "value": "Tell me something about eShipAsia."
                         },
                         {
-                            "text": "Loan Calculator",
-                            "value": "Loan Calculator"
+                            "text": "Ask about Kuehne + Nagel",
+                            "value": "Tell me something about Kuehne + Nagel"
                         },
                         {
-                            "text": "Ask GenAI",
+                            "text": "Ask about Innovation",
+                            "value": "Tell me something about Innovation at Kuehne + Nagel?"
+                        },
+                        {
+                            "text": "Ask about GenAI",
                             "value": "What kind of questions can the Assistant answer?"
                         }
                     ],
